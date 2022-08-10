@@ -1,7 +1,7 @@
 package com.mabo.controller;
 
 
-import com.mabo.utils.RedisGeneratorCode;
+import com.mabo.utils.RedisGenerateID;
 import com.mabo.cache.CacheConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +21,11 @@ public class TestController {
     }
     //  http://localhost:8081/test2
     @Autowired
-    private RedisGeneratorCode redisGeneratorCode;
+    private RedisGenerateID redisGenerateID;
     // http://localhost:8081/test?id=1
     @RequestMapping("test2")
     public  String test2(){
-        String worksheet_id = redisGeneratorCode.generateCode("worksheet_id", "", true, 4);
+        String worksheet_id = redisGenerateID.getId("worksheet_id", "", true, 4);
         return worksheet_id;
     }
 

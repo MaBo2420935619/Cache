@@ -19,9 +19,9 @@ import javax.annotation.Resource;
  * @Description: 生成日期开头加0001，0002，0003的工具类
  */
 @Service
-public class RedisGeneratorCode {
+public class RedisGenerateID {
 
-    private static final Logger logger = LoggerFactory.getLogger(RedisGeneratorCode.class);
+    private static final Logger logger = LoggerFactory.getLogger(RedisGenerateID.class);
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
@@ -36,7 +36,7 @@ public class RedisGeneratorCode {
      * @return
      * String
      */
-    public String generateCode(String key, String prefix, boolean hasExpire, Integer minLength) {
+    public String getId(String key, String prefix, boolean hasExpire, Integer minLength) {
         return this.createGenerateCode(key, prefix, hasExpire, minLength);
     }
 
@@ -50,7 +50,7 @@ public class RedisGeneratorCode {
      * @return
      * String
      */
-    public String generateCode(String key, boolean hasExpire, Integer minLength) {
+    public String getId(String key, boolean hasExpire, Integer minLength) {
         return this.createGenerateCode(key, "", hasExpire, minLength);
     }
 
